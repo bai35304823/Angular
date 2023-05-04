@@ -1,0 +1,50 @@
+<br>
+<h4>&nbsp;&nbsp;&nbsp;Add Airport Form</h4>
+<div class="container" style="width:500px">
+   
+    <form [formGroup]="addForm">
+        <div *ngIf="errorMessage" class="alert alert-warning">
+            <strong>Warning!</strong> {{errorMessage | json}}
+          </div>
+        <div>
+            <div class="form-group">
+                <!-- <label for="id">Id : </label> -->
+                <input type="hidden" id="id" class="form-control" formControlName="id"><br>
+            </div>
+            <div class="form-group">
+                 <!--<label for="airportCode">Airport Code : </label>  -->
+                <input type="hidden" id="airportCode" class="form-control" formControlName="airportCode"><br>
+            </div>
+            <div class="form-group">
+                <label for="name">Airport Name : </label>
+                <input type="text" id="airportName" class="form-control" formControlName="airportName"  [ngClass]="{ 'is-invalid' : submitted && addForm.controls['airportName'].errors}"><br>
+                <div *ngIf="submitted && addForm.controls['airportName'].errors" class="invalid-feedback">
+                    <div *ngIf="addForm.controls['airportName'].errors?.['required']">
+                        Airport Name is required
+                    </div>
+                    <div *ngIf="addForm.controls['airportName'].errors?.['pattern']">
+                        Airport Name should be alphabet or digit.
+                    </div>
+              
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="salary">Country Code: </label>
+                <input type="text" id="countryId" class="form-control" formControlName="countryId"  [ngClass]="{ 'is-invalid' : submitted && addForm.controls['countryId'].errors}"><br>
+                <div *ngIf="submitted && addForm.controls['countryId'].errors" class="invalid-feedback">
+                    <div *ngIf="addForm.controls['countryId'].errors?.['required']">
+                        Country Code is required
+                    </div>
+                    <div *ngIf="addForm.controls['countryId'].errors?.['pattern']">
+                        Country Code should be alphabet or digit.
+                    </div>
+              
+                </div>
+            </div>
+        </div>
+        <br>
+        <button (click)="saveAirport()" class="btn btn-success">Save</button>
+        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+        <button type="reset" class="btn btn-info">Clear</button>
+    </form>
+</div>

@@ -1,0 +1,31 @@
+<br/>
+<h5>&nbsp;&nbsp;&nbsp;Airport Details</h5>
+<div class="container">
+ 
+    <div>
+        <div  style = "width:750px">
+            <table class="table table-striped table-dark">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Airport Code</th>
+                        <th>Airport Name</th>
+                        <th>Country Code</th>
+                        <th>Remove</th>
+                        <th>Update</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor = "let airport of Airports">
+                        <td>{{airport.id}}</td>
+                        <td>{{airport.airportCode}}</td>
+                        <td>{{airport.airportName}}</td>
+                        <td>{{airport.countryId}}</td>
+                        <td><button class="btn btn-danger" (click)="deleteAirport(airport)">Remove</button></td>
+                        <td><a  [routerLink]="['/updateAirport', airport.id]"><button class="btn btn-warning">Update</button></a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

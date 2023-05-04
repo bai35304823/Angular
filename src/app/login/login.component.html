@@ -5,12 +5,29 @@
 <div class ="container">
 <!-- Reactive forms, form Group -->
 <form [formGroup]="loginForm">
+    <div *ngIf="errorMessage" class="alert alert-warning" style="width:500px">
+        <strong>Warning!</strong> {{errorMessage | json}}
+      </div>
    Login Id :
    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-   <input type="text" formControlName="loginid" ><br><br>
-  
+   <input type="text" formControlName="loginid"  [ngClass]="{ 'is-invalid' : submitted && rfc['loginid'].errors}"><br><br>
+   <div *ngIf="submitted && loginForm.controls['loginid'].errors" class="invalid-feedback">
+      <div *ngIf="loginForm.controls['loginid'].errors?.['required']">
+          Email is required
+      </div>
+      <div *ngIf="loginForm.controls['loginid'].errors?.['pattern']">
+          Invalid Email....
+      </div>
+ 
+  </div>
    Password : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-   <input type="password" formControlName="password" ><br><br>
+   <input type="password" formControlName="password" [ngClass]="{ 'is-invalid' : submitted && rfc['password'].errors}"><br><br>
+   <div *ngIf="submitted && loginForm.controls['password'].errors" class="invalid-feedback">
+      <div *ngIf="loginForm.controls['password'].errors?.['required']">
+         Password is required
+      </div>
+ 
+  </div>
    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
    <button class="btn btn-success" (click)="onSubmit()">Login</button>
    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;

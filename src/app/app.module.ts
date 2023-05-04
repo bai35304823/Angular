@@ -9,6 +9,11 @@ import { ListEmpComponent } from './list-emp/list-emp.component';
 import { LoginComponent } from './login/login.component';
 import { AddEmpComponent } from './add-emp/add-emp.component';
 import { RegisterComponent } from './register/register.component';
+import { AddAirportComponent } from './add-airport/add-airport.component';
+import { AirComponent } from './air/air.component';
+import { ListAirportComponent } from './list-airport/list-airport.component';
+import { UpdateAirportComponent } from './update-airport/update-airport.component';
+import { RegistComponent } from './regist/regist.component';
 
 
 @NgModule({
@@ -18,6 +23,11 @@ import { RegisterComponent } from './register/register.component';
     LoginComponent,
     AddEmpComponent,
     RegisterComponent,
+    AddAirportComponent,
+    AirComponent,
+    ListAirportComponent,
+    UpdateAirportComponent,
+    RegistComponent,
 
    ],
   imports: [

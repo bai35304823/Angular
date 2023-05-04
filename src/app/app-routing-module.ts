@@ -4,7 +4,11 @@ import { ListEmpComponent } from "./list-emp/list-emp.component";
 import { LoginComponent } from "./login/login.component";
 import { AuthGuardService } from "./service/auth-guard.service";
 import { AddEmpComponent } from "./add-emp/add-emp.component";
-import { RegisterComponent } from "./register/register.component";
+import { RegistComponent } from "./regist/regist.component";
+import { AddAirportComponent } from "./add-airport/add-airport.component";
+import { UpdateAirportComponent } from "./update-airport/update-airport.component";
+import { ListAirportComponent } from "./list-airport/list-airport.component";
+
 
 // creating the routes in the route configuration file
 const routes: Routes = [
@@ -12,7 +16,11 @@ const routes: Routes = [
     { path: 'login', component: LoginComponent },
     { path: 'employees', component: ListEmpComponent, canActivate:[AuthGuardService] },
     { path: 'add', component: AddEmpComponent, canActivate:[AuthGuardService] },
-    { path: 'register', component: RegisterComponent },
+    { path: 'register', component: RegistComponent },
+    { path: 'update/:id', component: AddEmpComponent },
+    { path: 'airports', component: ListAirportComponent, canActivate: [AuthGuardService] },
+    { path: 'addAirport', component: AddAirportComponent, canActivate:[AuthGuardService] },
+    { path: 'updateAirport/:id', component: UpdateAirportComponent },
 ]
 
 @NgModule({
