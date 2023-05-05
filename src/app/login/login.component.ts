@@ -38,20 +38,28 @@ export class LoginComponent implements OnInit {
         console.log(`Got a successfull status code: ${data}`);
         //console.log("00");
         console.log("00");
+
+        this.auth(loginid, password);
       }
       sessionStorage.setItem("loggedIn",'yes');
       console.log(`This contains body: ${data}`);
       this.router.navigate(['airports']);
 
     },
-      (error: HttpErrorResponse) => {                              //Error callback
+      (error: any) => {                              //Error callback
         console.error('error caught in component');
-        this.errorMessage = error.error.message;
-        if (!this.errorMessage) {
-          // strValue was empty string, false, 0, null, undefined, ...
-          this.errorMessage = error.error.text;
+
+         console.log(error);
+        if (error.status =='401') {
+          this.errorMessage ='Invalid credentials..'
         }
-        this.loading = false;
+
+        //this.errorMessage = error.error.message;
+        //if (!this.errorMessage) {
+          // strValue was empty string, false, 0, null, undefined, ...
+         // this.errorMessage = error.error.text;
+       // }
+        //this.loading = false;
 
         throw error;
       }
@@ -64,6 +72,21 @@ export class LoginComponent implements OnInit {
       loginid: ['bruce@lee.com',[Validators.required,Validators.pattern(emailPattern)]],
       password: [,Validators.required]
     });
+  }
+
+  public auth(email: String, pwd: String) {
+    this.regService.authenticate(email, pwd).subscribe((response: any) => {
+      console.log('saved the data', response);
+      console.log('saved the data', response.status);
+      localStorage.setItem("jwt_token",response.status);
+
+    },
+    (error: any) => {                              //Error callback
+      console.error('error caught in component');
+      console.error(error);
+     
+      throw error;
+    })
   }
 
   get rfc() {

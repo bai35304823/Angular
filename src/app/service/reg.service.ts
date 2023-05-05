@@ -7,10 +7,10 @@ import { Reg } from "../model/reg.model";
   providedIn: 'root'
 })
 export class RegService {
-  baseUrl: string = "http://localhost:8888/api/v2/registrations/register";
-  loginUrl: string = "http://localhost:8888/api/v2/registrations/login";
-  loginUrl2: string = "http://localhost:8888/api/v2/registrations";
-  loginUrl3: string = "http://localhost:8888/authenticate";
+  baseUrl: string = "http://localhost:9302/api/v2/registrations/register";
+  loginUrl: string = "http://localhost:9302/api/v2/registrations/login";
+  loginUrl2: string = "http://localhost:9302/api/v2/registrations";
+  loginUrl3: string = "http://localhost:9302/authenticate";
   constructor(private httpClient: HttpClient) { }
 
   regAdmin(reg: Reg) {

@@ -14,7 +14,11 @@ import { AirComponent } from './air/air.component';
 import { ListAirportComponent } from './list-airport/list-airport.component';
 import { UpdateAirportComponent } from './update-airport/update-airport.component';
 import { RegistComponent } from './regist/regist.component';
+import { SearchFilterPipe } from './search-filter.pipe';
+import { FormsModule } from '@angular/forms';
 
+// search module
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 @NgModule({
   declarations: [	
@@ -34,7 +38,9 @@ import { RegistComponent } from './regist/regist.component';
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormsModule,
+    Ng2SearchPipeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

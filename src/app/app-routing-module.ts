@@ -28,6 +28,7 @@ const routes: Routes = [
     imports: [
         // Import the angular router module to be used inside this module.
         RouterModule.forRoot(routes)
+       
     ],
     exports: [RouterModule]
 })

@@ -12,6 +12,9 @@ import { Airport } from '../model/airport.mode';
 
 export class ListAirportComponent implements OnInit {
   Airports?: Airport[];
+  air: Airport[] = [];
+  term = '';
+  searchText;
   AirportService: AirportService
   constructor(AirportService: AirportService, private router: Router) {
     this.AirportService = AirportService;
@@ -36,6 +39,11 @@ export class ListAirportComponent implements OnInit {
     console.log("Airports: " + this.Airports);
   }
 
+  //search(value: string): void {
+    //this.air = this.Airports.filter((val) =>
+      //val.id.includes(value)
+    //);
+  //}
   //other operations to be implemented create, update, delete
   deleteAirport(toDeleteAirport: Airport): void {
     //alert(JSON.stringify(toDeleteAirport));
